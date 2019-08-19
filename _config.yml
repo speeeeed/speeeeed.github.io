@@ -1,1 +1,9 @@
-theme: jekyll-theme-leap-day
+permalink: /blog/:year/:month/:day/
+markdown: kramdown
+highlighter: rouge
+timezone: GMT
+safe: true
+
+# url: https://nullprogram.com
+#title: null program
+#description: Hobby computing blog
