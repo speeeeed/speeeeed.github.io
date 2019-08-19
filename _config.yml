@@ -1,12 +1,50 @@
-permalink: /blog/:year/:month/:day/
-markdown: kramdown
-highlighter: rouge
-timezone: GMT
-safe: true
+#original setting
+#permalink: /blog/:year/:month/:day/
+#markdown: kramdown
+#highlighter: rouge
+#timezone: GMT
+#safe: true
+#title: zunw-me
+#description: Personal Blog
+#theme: jekyll-theme-hacker
 
-title: zunw-me
-description: Personal Blog
 
-theme: jekyll-theme-hacker
+# Site settings
+title:          zunw-me
+description:    "Personal Blog"
+#baseurl:        "/tale"
+url:            "https://speeeeed.github.io"
 
+# Google Analytics
+#google_analytics: UA—XXXXXXXX-X
+
+# Author
+author:
+  name:         Zun Wang
+  url:          https://zunw.me
+  email:        wangzun827@outlook.com
+
+# Build settings
+markdown:       kramdown
+include:
+  - _pages
+
+# Assets
+sass:
+  sass_dir:     _sass
+  style:        compressed
+
+# Gems
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-seo-tag
+  # - jemoji #Uncomment this to allow emoji in your post
+
+# Permalinks
+permalink:      /:year-:month-:day/:title
+paginate:       5
+
+# Excludes
+exclude: [ Gemfile, Gemfile.lock, tale.gemspec ]
 
