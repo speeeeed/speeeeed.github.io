@@ -1,0 +1,111 @@
+## 播放音频
+
+在使用Python处理音频信号的过程中，如果每次都要写文件，然后再用cool edit等文件播放数据，则稍有些麻烦。
+
+Python的pyaudio模块，可以直接调用PC的声卡来播放音频数据。
+
+```python
+import pyaudio
+import wave
+
+filename = "bluesky3.wav"
+
+f = wave.open(filename, 'rb')                 # 打开文件
+params = f.getparams()                        # 获取参数
+chunk = 1024                                  # 每次读取的size
+
+nchannels, sampwidth, framerate, nframes = params[:4]
+
+p = pyaudio.PyAudio()                         # 新建一个pyaudio的对象
+
+# open一个stream
+stream = p.open(format = p.get_format_from_width(sampwidth),
+                channels = nchannels,
+                rate = framerate,
+                output = True)
+
+# main loop
+while True:
+    data = f.readframes(chunk)
+    if data == '':                            # 如果没有读到数据则退出
+        break
+    stream.write(data)
+
+f.close()
+stream.stop_stream()
+stream.close()
+p.terminate()
+```
+
+## 录制音频
+
+pyaudio也可以用来录制音频，录制音频与播放的流程差不多。
+
+```python
+#!usr/bin/env python
+#coding=utf-8
+
+import numpy as np
+from pyaudio import PyAudio,paInt16
+from datetime import datetime
+import wave
+from Tkinter import *
+
+#define of params
+NUM_SAMPLES = 2000
+framerate = 8000
+channels = 1
+sampwidth = 2
+#record time
+TIME = 10
+
+def save_wave_file(filename, data):
+    '''save the date to the wav file'''
+    wf = wave.open(filename, 'wb')
+    wf.setnchannels(channels)
+    wf.setsampwidth(sampwidth)
+    wf.setframerate(framerate)
+    wf.writeframes("".join(data))
+    wf.close()
+
+def my_button(root,label_text,button_text,button_func):
+    '''''function of creat label and button'''
+    #label details
+    label = Label(root)
+    label['text'] = label_text
+    label.pack()
+
+    #button details
+    button = Button(root)
+    button['text'] = button_text
+    button['command'] = button_func
+    button.pack()
+
+def record_wave():
+    #open the input of wave
+    pa = PyAudio()
+    stream = pa.open(format = paInt16, channels = 1,
+                     rate = framerate, input = True,
+                     frames_per_buffer = NUM_SAMPLES)
+    save_buffer = []
+    count = 0
+    while count < TIME*4:
+        #read NUM_SAMPLES sampling data
+        string_audio_data = stream.read(NUM_SAMPLES)
+        save_buffer.append(string_audio_data)
+        count += 1
+        print '.',
+
+    filename = datetime.now().strftime("%Y-%m-%d_%H_%M_%S")+".wav"
+    save_wave_file(filename, save_buffer)
+    save_buffer = []
+    print filename, "saved"
+
+def main():
+    root = Tk()
+    my_button(root,"Record a wave","clik to record",record_wave)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
+```
