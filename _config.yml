@@ -3,7 +3,7 @@ markdown: kramdown
 highlighter: rouge
 timezone: GMT
 safe: true
-theme: 
+theme: jekyll-theme-hacker
 
 # url: https://nullprogram.com
 #title: null program
