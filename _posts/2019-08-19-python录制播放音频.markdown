@@ -1,3 +1,9 @@
+---
+title: python读写wav文件
+date: 2019-06-30
+tags: [python, audio]
+---
+
 ## 播放音频
 
 在使用Python处理音频信号的过程中，如果每次都要写文件，然后再用cool edit等文件播放数据，则稍有些麻烦。

@@ -1,3 +1,10 @@
+---
+title: python读写wav文件
+date: 2019-06-30
+tags: [python, audio]
+---
+
+
 ## 读取wav文件
 
 Python读取wav文件，使用wave模块，使用时需要import该模块。
