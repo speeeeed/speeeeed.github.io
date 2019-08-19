@@ -3,4 +3,10 @@ markdown: kramdown
 highlighter: rouge
 timezone: GMT
 safe: true
+
+title: zunw-me
+description: Personal Blog
+
 theme: jekyll-theme-hacker
+
+
