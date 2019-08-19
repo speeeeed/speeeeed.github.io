@@ -8,3 +8,5 @@ theme:
 # url: https://nullprogram.com
 #title: null program
 #description: Hobby computing blog
+
+theme: jekyll-theme-leap-day
