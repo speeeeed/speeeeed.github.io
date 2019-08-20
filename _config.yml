@@ -1,7 +1,6 @@
 #original setting
 #permalink: /blog/:year/:month/:day/
-#markdown: kramdown
-#highlighter: rouge
+#markdown: kramdown #highlighter: rouge
 #timezone: GMT
 #safe: true
 #title: zunw-me
