@@ -1,7 +1,9 @@
 ---
+layout: post
 title: python读写wav文件
 date: 2019-06-30
 tags: [python, audio]
+author: Zun Wang
 ---
 
 
