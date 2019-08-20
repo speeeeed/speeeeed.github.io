@@ -48,3 +48,8 @@ paginate:       5
 # Excludes
 exclude: [ Gemfile, Gemfile.lock, tale.gemspec ]
 
+# Gitalk settings
+comment_gitalk_clientId: e44678ffc22f94ef8713
+comment_gitalk_clientSecret: 8472515413e520f34847a125e75cbc2a7419a398
+comment_gitalk_repo: speeeeed.github.io
+github_username: speeeeed
